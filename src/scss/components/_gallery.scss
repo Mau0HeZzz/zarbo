@@ -1,0 +1,141 @@
+.gallery {
+  padding: 30px 0 60px;
+  overflow-x: auto;
+  @include lit-desktop() {
+    padding: 20px 0 40px;
+  }
+  @include tablet() {
+    padding: 10px 0 40px;
+  }
+  @include mobile() {
+    padding: 20px 0;
+  }
+  a {
+    display: block;
+    line-height: 0;
+  }
+  &__swiper {
+    overflow: visible;
+    &--desktop {
+      @include lit-mobile() {
+        display: none;
+      }
+    }
+    &--mobile {
+      display: none;
+      @include lit-mobile() {
+        display: block;
+      }
+    }
+    .swiper-slide {
+      max-height: 339px;
+      @include lit-desktop() {
+        max-height: 181px;
+      }
+      @include tablet() {
+        max-height: 136px;
+      }
+      @include mobile() {
+        max-height: 102px;
+      }
+    }
+    & + & {
+      margin-top: 24px;
+      .swiper-slide {
+        max-height: 420px;
+      }
+      @include lit-desktop() {
+        margin-top: 15px;
+        .swiper-slide {
+          max-height: 224px;
+        }
+      }
+      @include tablet() {
+        margin-top: 11px;
+        .swiper-slide {
+          max-height: 168px;
+        }
+      }
+      @include mobile() {
+        margin-top: 8px;
+        .swiper-slide {
+          max-height: 128px;
+        }
+        @include lit-mobile() {
+          .swiper-slide {
+            max-height: 220px;
+          }
+        }
+      }
+    }
+  }
+  .swiper-wrapper {
+    overflow: visible;
+  }
+  .swiper-slide {
+    width: 25%;
+    height: auto;
+    @include lit-mobile() {
+      width: 80%;
+    }
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  &-image__item {
+    border-radius: 10px;
+    &--border-top-right {
+      border-top-right-radius: 115px;
+      @include lit-desktop() {
+        border-top-right-radius: 90px;
+      }
+      @include tablet() {
+        border-top-right-radius: 68px;
+      }
+    }
+    &--border-top-left {
+      border-top-left-radius: 115px;
+      @include lit-desktop() {
+        border-top-left-radius: 90px;
+      }
+      @include tablet() {
+        border-top-left-radius: 68px;
+      }
+    }
+    &--border-bot-right {
+      border-bottom-right-radius: 115px;
+      @include lit-desktop() {
+        border-bottom-right-radius: 112px;
+      }
+      @include tablet() {
+        border-bottom-right-radius: 84px;
+      }
+    }
+    &--border-bot-left {
+      border-bottom-left-radius: 115px;
+      @include lit-desktop() {
+        border-bottom-left-radius: 112px;
+      }
+      @include tablet() {
+        border-bottom-left-radius: 84px;
+      }
+    }
+  }
+}
+
+.gallery::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  margin: 0 20px;
+}
+.gallery::-webkit-scrollbar-thumb {
+  background-color: #f1ecff;
+  cursor: pointer;
+}

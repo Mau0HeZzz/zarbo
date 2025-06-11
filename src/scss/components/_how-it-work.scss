@@ -1,0 +1,449 @@
+.how-it-work{
+  margin-top: 80px;
+  padding-bottom: 123px;
+  @include lit-desktop(){
+    margin-top: 60px;
+    padding-bottom: 100px;
+  }
+  @include tablet(){
+    padding-bottom: 80px;
+  }
+  @include mobile(){
+    margin-top: 40px;
+    padding-bottom: 60px;
+  }
+  @include lit-mobile(){
+    padding-bottom: 50px;
+  }
+
+
+  &__row{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 103px 30px;
+    @include lit-desktop(){
+      gap: 77px 30px;
+    }
+    @include tablet(){
+      padding-top: 12px;
+      gap: 65px 16px;
+    }
+    @include mobile(){
+      padding-top: 20px;
+      gap: 51px 0;
+      justify-content: space-between;
+    }
+    @include lit-mobile{
+      padding-top: 7px;
+    }
+
+    &:before,&:after{
+      content: '';
+      position: absolute;
+      background: url(../img/decor.svg) no-repeat center center;
+      background-size: contain;
+    }
+    &:before{
+      height: 71px;
+      width: 71px;
+      top: 127px;
+      left: 2.8%;
+      transform: rotate(23deg);
+      @include lit-desktop(){
+        top: 139px;
+        left: 57px;
+
+      }
+      @include tablet(){
+        display: none;
+      }
+    }
+    &:after{
+      height: 51px;
+      width: 51px;
+      bottom: 288px;
+      right: 21%;
+      @include lit-desktop(){
+        bottom: 263px;
+        right: 18%;
+      }
+      @include tablet(){
+        bottom: 297px;
+        right: 4.1%;
+      }
+      @include mobile(){
+        display: none;
+      }
+    }
+    // &::before{
+    //   content: '';
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   height: 100%;
+    //   width: 100%;
+    //   transform: translate(-50%,-50%);
+    //   background: url(../img/how_it_work.svg) no-repeat center center;
+    //   background-size: contain;
+    //   max-height: 309px;
+    //   max-width: 954px;
+    // }
+  }
+  &__item:not(.how-it-work__item--type-3){
+    display: flex;
+    background-color: $white;
+    align-content: center;
+
+  }
+  &__item{
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 10px;
+    z-index: 50;
+
+
+    &--type{
+      &-1{
+        width: 34.2%;
+        padding-left: 28px;
+        padding-right: 28px;
+        padding-top: 40px;
+        padding-bottom: 37px;
+        @include lit-desktop(){
+          width: 400px;
+          padding: 36px 28px;
+        }
+        @include tablet(){
+          width: 330px;
+          padding: 36px 18px;
+        }
+        @include mobile(){
+          padding: 36px 16px;
+          width: 240px;
+        }
+        @include lit-mobile(){
+          width: calc(50% - 10px);
+          padding: 24px 12px;
+        }
+      }
+      &-2{
+        position: relative;
+        width: 25.6%;
+        padding-left: 28px;
+        padding-right: 100px;
+        margin-left: auto;
+        margin-right:8%;
+        padding-top: 40px;
+        padding-bottom: 37px;
+        @include lit-desktop(){
+          width: 370px;
+          padding: 36px 100px 36px 28px;
+          margin-right: 3%;
+        }
+        @include tablet(){
+          width: 270px;
+          padding: 36px 100px 36px 14px;
+          margin-right: 8%;
+        }
+        @include mobile(){
+          padding: 36px 16px;
+          width: 210px;
+          margin-right: 5.8%;
+        }
+        @include lit-mobile(){
+          width: calc(50% - 10px);
+          padding: 24px 12px;
+          margin-right: 0;
+        }
+      }
+      &-3{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        z-index: 25;
+        &:before{
+          content: '';
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background: url(../img/how-to-work-top.svg) no-repeat center center;
+          height: 103px;
+          width: 818px;
+          background-size: contain;
+          bottom: 100%;
+          @include lit-desktop(){
+            height: 77px;
+            width: 649px
+          }
+          @include tablet(){
+            height: 74px;
+            width: 491px;
+          }
+          @include mobile(){
+            background: url(../img/hot-to-work__bottm-mob.svg) no-repeat center center;
+            background-size: contain;
+            width: 202px;
+            height: 52px;
+          }
+        }
+        &:after{
+          content: '';
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background: url(../img/how-to-work-bot.svg) no-repeat center center;
+          height: 106px;
+          width: 954px;
+          background-size: contain;
+          top: 100%;
+          @include lit-desktop(){
+            height: 77px;
+            width: 724px
+          }
+          @include tablet(){
+            height: 64px;
+            width: 572px;
+          }
+          @include mobile(){
+            width: 212px;
+            height: 290px;
+            background: url(../img/how-to-work_bot_mobile.svg) no-repeat center center;
+            background-size: contain;
+          }
+
+        }
+      }
+      &-4{
+        width: calc(25% - 23px);
+        padding: 25px 20px;
+        align-items: center;
+        @include lit-desktop(){
+          flex-direction: column;
+          align-items: center;
+          padding: 25px 20px;
+        }
+        @include tablet(){
+          padding: 25px 12px;
+          width: calc(25% - 12px);
+        }
+        @include mobile(){
+          position: relative;
+          width: calc(50% - 15px);
+          flex-direction: row;
+          padding: 25px 12px;
+          align-items: flex-start;
+          &:nth-child(6),&:nth-child(7){
+            margin-top: -22px;
+          }
+        }
+        @include lit-mobile(){
+          flex-direction: column;
+          padding: 12px;
+        }
+      }
+    }
+  }
+  &__icon{
+    flex-shrink: 0;
+    margin-right: 16px;
+    @include lit-desktop(){
+      margin-right: auto;
+      margin-bottom: 10px;
+    }
+    @include mobile(){
+      margin-right: 16px;
+    }
+    @include lit-mobile(){
+      margin-bottom: 8px;
+    }
+  }
+  &__desc{
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 135%;
+    @include lit-desktop(){
+      font-size: 16px;
+    }
+    @include tablet(){
+      font-size: 14px;
+    }
+  }
+  &__allert{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -100px;
+    // display: flex;
+    // align-items: center;
+    padding: 14px 20px 14px 72px;
+    backdrop-filter: blur(24px);
+    box-shadow: inset 0 4px 19px 0 rgba(255, 255, 255, 0.02), inset 0 -4px 12px 0 rgba(255, 255, 255, 0.14);
+    background: rgba(202, 185, 255, 0.35);
+    border-radius: 10px 10px 10px 47px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 135%;
+    color: #464547;
+
+    width: 263px;
+    @include lit-desktop(){
+      right: -27px;
+      width: 238px;
+      font-size: 16px;
+      line-height: 135%;
+      padding: 14px 20px 14px 64px;
+    }
+    @include tablet(){
+      width: 210px;
+      font-size: 15px;
+      line-height: 135%;
+      padding: 11px 14px 17px 58px;
+      right: -57px;
+    }
+    @include mobile(){
+      width: 102px;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 15px;
+      line-height: 135%;
+      padding: 10px;
+      right: -30px;
+      border-radius: 10px 10px 46px 10px;
+    }
+    @include lit-mobile(){
+      left: 0;
+      top: 100%;
+      width: 100%;
+      padding: 4px 9px 13px;
+
+      border-radius: 10px;
+      font-size: 14px;
+      margin-top: -8px;
+    }
+    span{
+      border-bottom: 1px dashed rgba(138, 126, 149, 0.5)
+    }
+    svg{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 24px;
+        height: 30px;
+        width: 30px;
+        fill: url(#tabs-active);
+        flex-shrink: 0;
+        margin-right: 18px;
+        @include lit-desktop(){
+          margin-right: 16px;
+        }
+        @include tablet(){
+          margin-right: 10px;
+          left: 16px;
+          top: 48%;
+        }
+        @include mobile(){
+          height: 20px;
+          width: 20px;
+          margin-bottom: 4px;
+          margin-right: 0;
+          position: static;
+          display: block;
+          transform: none;
+        }
+        @include lit-mobile(){
+          display: none;
+        }
+    }
+  }
+  &__title{
+    font-size: 20px;
+    font-weight: 700;
+    @include lit-desktop(){
+      font-size: 18px;
+      line-height: 135%;
+    }
+    @include tablet(){
+      font-size: 16px;
+    }
+    @include mobile(){
+      font-size: 15px;
+    }
+    @include lit-mobile(){
+      font-size: 14px;
+      line-height: 135%;
+    }
+  }
+  &__logo{
+    &-wrap{
+      position: relative;
+      &::before,&::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+      &:before{
+        background: #fff;
+        opacity: 0.3;
+        border-radius: 13px;
+        border: 1px solid #CB58AA;
+        box-sizing: border-box;
+        width: calc(100% + 16px);
+        height: calc(100% + 16px);
+        @include mobile(){
+          width: calc(100% + 8px);
+          height: calc(100% + 8px);
+        }
+      }
+      &:after{
+        background: #fff;
+        opacity: 0.5;
+        border-radius: 10px;
+        border: 1px solid #CB58AA;
+        box-sizing: border-box;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        @include mobile(){
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+        }
+      }
+    }
+    position: relative;
+    z-index: 50;
+    padding: 33px 44px;
+    background: radial-gradient(39.14% 7% at 50% 100%, #EE5F70 0%, rgba(238, 95, 112, 0) 100%), radial-gradient(38.99% 7% at 50% 0%, #EE5F70 0%, rgba(238, 95, 112, 0) 100%), radial-gradient(109.92% 80.31% at 50% 50%, #FFFFFF 0%, #FFFFFF 58.33%);
+    border-radius: 7px;
+
+    @include lit-desktop(){
+      padding: 25px 29px;
+    }
+    @include tablet(){
+      padding: 14px 22px;
+    }
+    @include mobile(){
+      padding: 12px 22px;
+    }
+
+    img{
+      max-height: 33px;
+      max-width: 100%;
+      @include lit-desktop(){
+        max-height: 26px;
+      }
+      @include tablet(){
+        max-height: 20px;
+      }
+      @include mobile(){
+        max-height: 15px;
+      }
+    }
+  }
+}
+
+
+

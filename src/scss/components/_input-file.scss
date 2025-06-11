@@ -1,0 +1,187 @@
+.file-input{
+  position: relative;
+  cursor: pointer;
+
+  &:hover{
+    .file-input__wrap{
+      &:before{
+        opacity: 1;
+      }
+    }
+  }
+  &--success{
+    .file-input__icon{
+      background-image: url(../img/file-success.svg);
+    }
+    .file-input__right{
+      display: none;
+    }
+    .file-input__success{
+      display: block;
+    }
+
+  }
+  &--error{
+
+    .file-input__wrap{
+      border-color: #734CA5;
+      border-style: dashed;
+    }
+    .file-input__icon{
+      background-image: url(../img/file-error.svg);
+    }
+    .file-input__right{
+      display: none;
+    }
+    .file-input__error{
+      display: block;
+    }
+
+  }
+  input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0;
+    z-index: 50;
+    cursor: pointer;
+  }
+  &__label{
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // height: 100%;
+    // width: 100%;
+    // z-index: 100;
+    cursor: pointer;
+  }
+  &__wrap{
+    // display: flex;
+    // align-items: center;
+    border: 2px dashed #734ca5;
+    border-radius: 10px;
+    padding: 24px 50px;
+    transition: $transtion;
+    b{
+      font-weight: 600;
+    }
+    @include tablet(){
+      padding: 20px;
+      font-size: 14px;
+      line-height: 143%;
+      letter-spacing: 0.02em;
+      color: #8a7e95;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      border: 2px solid #734ca5;;
+      transition: $transtion;
+      border-radius: 10px;
+    }
+  }
+  &__desc{
+    color: #8A7E95;
+    font-size: 16px;
+    line-height: 28px;
+    &--tablet{
+      display: none;
+      @include tablet(){
+        display: block;
+        margin-top: 5px;
+      }
+      @include mobile(){
+        display: none;
+      }
+    }
+
+    @include tablet(){
+      font-size: 14px;
+      line-height: 135%;
+
+    }
+  }
+  &__desk-and-mob{
+    @include tablet(){
+      display: none;
+    }
+    @include mobile(){
+      display: block;
+    }
+  }
+  &__row{
+    display: flex;
+    align-items: center;
+    @include lit-desktop(){
+      align-items: flex-start;
+    }
+  }
+  &__icon{
+    width: 30px;
+    height: 42px;
+    flex-shrink: 0;
+    margin-right: 30px;
+    background: url(../img/file.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    @include tablet(){
+      margin-right: 20px;
+    }
+  }
+  &__success{
+    display: none;
+  }
+  &__error{
+    display: none;
+  }
+  .desk{
+    @include tablet(){
+      display: none;
+    }
+  }
+  &.isHover{
+    .file-input__label{
+      z-index: 1;
+    }
+  }
+  &__desk-and-tablet{
+    @include mobile(){
+      display: none;
+    }
+  }
+  &__max-size{
+    @include mobile(){
+      display: block;
+      margin-top: 4px;
+    }
+  }
+  &__delete{
+    margin-left: 10px;
+    color: #FF5C5C;
+    border: none;
+    background: transparent;
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    position: relative;
+    z-index: 5000;
+    cursor: pointer;
+  }
+  &__again{
+    position: relative;
+    z-index: 5000;
+    cursor: pointer;
+    color: #734CA5;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}

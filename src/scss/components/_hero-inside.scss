@@ -1,0 +1,336 @@
+.inside-hero{
+  position: relative;
+  padding: 45px 0 100px;
+  background-color: $lightBlock;
+  &:before{
+    content: '';
+    position: absolute;
+
+    top: -20px;
+    height: 59px;
+    width: 59px;
+    background: url(../img/decor.svg) no-repeat center;
+    background-size: contain;
+    left: 10%;
+    transform: rotate(45deg);
+    @include lit-desktop(){
+      left: 57%;
+    }
+    @include mobile(){
+      display: none;
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+
+    bottom: 63px;
+    height: 39px;
+    width: 39px;
+    background: url(../img/decor.svg) no-repeat center;
+    background-size: contain;
+    left: 10%;
+
+
+    // transform: rotate(45deg);
+    // @include lit-desktop(){
+    //   left: 57%;
+    // }
+    // @include mobile(){
+    //   display: none;
+    // }
+    @include lit-desktop(){
+      display: none;
+    }
+  }
+  &--big{
+    &:after{
+      left: 21%;
+      bottom: 38%;
+    }
+    .container:after{
+      display: none;
+    }
+  }
+  .container{
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+
+      bottom: 50%;
+      height: 39px;
+      width: 39px;
+      background: url(../img/decor.svg) no-repeat center;
+      background-size: contain;
+      right: 10%;
+      // transform: rotate(45deg);
+      // @include lit-desktop(){
+      //   left: 57%;
+      // }
+      // @include mobile(){
+      //   display: none;
+      // }
+      @include lit-desktop(){
+        display: none;
+      }
+      @include lit-mobile(){
+        display: block;
+        top: 100px;
+      }
+    }
+
+  }
+  &--big{
+    padding: 60px 0 1px;
+    @include lit-desktop(){
+      padding: 90px 0 1px;
+    }
+    @include tablet(){
+      padding: 68px 0 1px;
+    }
+  }
+  @include lit-desktop(){
+    padding: 90px 0 96px;
+  }
+  @include tablet(){
+       padding: 68px 0 81px
+  }
+  @include mobile(){
+    padding: 42px 0 60px;
+  }
+  @include lit-mobile(){
+    padding: 20px 0 50px;
+  }
+  &__top-row{
+    display: flex;
+    @include mobile(){
+      align-items: flex-end;
+    }
+    @include lit-mobile(){
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+
+  }
+  &__left{
+    max-width: 540px;
+    margin-right: 60px;
+    @include lit-desktop(){
+      max-width: 400px;
+      margin-right: 20px;
+    }
+  }
+  &__right{
+    padding-top: 35px;
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      left: 100%;
+      height: 59px;
+      top: 49px;
+      width: 59px;
+      background: url(../img/decor.svg) no-repeat center;
+      background-size: contain;
+      transform: rotate(45deg);
+      // transform: rotate(45deg);
+      // @include lit-desktop(){
+      //   left: 57%;
+      // }
+      // @include mobile(){
+      //   display: none;
+      // }
+      @include lit-desktop(){
+        display: none;
+      }
+      @include lit-mobile(){
+        // display: block;
+        // top: 100px;
+      }
+    }
+    @include lit-desktop(){
+      padding-top: 0;
+    }
+    @include lit-mobile(){
+      margin-top: 20px;
+    }
+
+    &_flex {
+      flex: 1 1 auto;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;align-items: center;
+      @include lit-mobile(){
+        width: 100%;
+        img {
+          max-width: 160px;
+        }
+      }
+    }
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 56px;
+    color: $zag;
+    line-height: 1;
+    margin: 0 0 40px 0;
+    @include lit-desktop(){
+      font-size: 48px;
+      margin: 0 0 23px 0;
+    }
+    @include tablet(){
+      font-size: 36px;
+      margin: 0 0 26px 0;
+    }
+    @include mobile(){
+      font-size: 28px;
+      margin: 0 0 21px 0;
+    }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 133%;
+      margin: 0 0 16px 0;
+    }
+  }
+  &__desc{
+    font-weight: 500;
+
+
+    &--default{
+      font-size: 20px;
+      line-height: 135%;
+      color: #464547;
+      max-width: 627px;
+      @include lit-desktop(){
+        max-width: 579px;
+      }
+      @include tablet(){
+        font-size: 16px;
+        line-height: 135%;
+        max-width: 501px;
+      }
+      @include mobile(){
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 135%;
+      }
+      @include lit-mobile(){
+        font-size: 16px;
+        line-height: 135%;
+      }
+    }
+    &--big{
+      font-size: 24px;
+      line-height: 135%;
+      @include lit-desktop(){
+        font-size: 20px;
+        line-height: 135%;
+      }
+      @include tablet(){
+        font-size: 16px;
+      }
+      @include mobile(){
+        font-size: 15px;
+      }
+
+    }
+
+
+  }
+  &__coop-list{
+    margin-top: 50px;
+    @include lit-desktop(){
+      margin-top: 36px;
+    }
+    @include tablet(){
+      margin-top: 33px;
+    }
+    @include mobile(){
+      margin-top: 17px;
+    }
+    @include lit-mobile(){
+      margin-top: 24px;
+    }
+  }
+  &__about-info{
+    margin-top: 75px;
+    margin-bottom: -80px;
+    @include lit-desktop(){
+      margin-top: 35px;
+      margin-bottom: -170px;
+    }
+    @include tablet(){
+      margin-top: 60px;
+      margin-bottom: -180px;
+    }
+  }
+}
+.coop-list{
+  &__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    @include lit-desktop(){
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 33px;
+    }
+    @include tablet(){
+      gap: 30px;
+    }
+    @include mobile(){
+      gap: 13px;
+    }
+    @include lit-mobile(){
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+  &__item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    padding: 20px 20px 20px 57px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 135%;
+    color: #464547;
+    border-radius: 10px;
+    transition: $transtion;
+    &:hover{
+      @include for-desktop(){
+        background-color: $lightDark;
+      }
+    }
+    @include tablet(){
+      font-size: 16px;
+      line-height: 135%;
+      padding: 18px 16px 18px 43px;
+    }
+    @include mobile(){
+      font-size: 14px;
+      line-height: 135%;
+      padding: 18px 8px 18px 32px;
+    }
+    @include lit-mobile(){
+      padding: 26px 21px 26px 36px;
+      font-size: 16px;
+      line-height: 135%;
+    }
+    img{
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      max-height: 73px;
+      @include mobile(){
+        max-height: 54px;
+      }
+    }
+  }
+
+}
+

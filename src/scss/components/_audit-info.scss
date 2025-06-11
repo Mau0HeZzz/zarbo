@@ -1,0 +1,328 @@
+.audit-info {
+  position: relative;
+  background-color: #F1ECFF;
+  margin: 60px 0;
+  padding: 80px 0;
+  @include lit-desktop(){
+    padding: 60px 0;
+  }
+  @include tablet(){
+    padding: 40px 0;
+    margin: 40px 0;
+  }
+  @include mobile(){
+    padding: 40px 0 20px;
+    margin: 40px 0 20px;
+  }
+
+  &::after{
+    content: "";
+    position: absolute;
+    right: 30%;
+    bottom: 40px;
+    margin-top: -45px;
+    height: 87px;
+    width: 87px;
+    background: url(../img/decor.svg) center center / contain no-repeat;
+    @include lit-desktop(){
+      height: 63px;
+      width: 63px;
+      bottom: 30px;
+    }
+    @include tablet(){
+      display: none;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &:not(:last-child) {margin-bottom: 40px;}
+  }
+
+  &__title {
+  }
+
+  &__desc {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  &__body {
+    display: grid;
+    gap: 20px;
+    &:not(:last-child) {margin-bottom: 80px;}
+    @include lit-desktop(){
+      gap: 16px;
+      &:not(:last-child) {margin-bottom: 60px;}
+    }
+    @include tablet(){
+      &:not(:last-child) {margin-bottom: 40px;}
+    }
+    @include mobile(){
+      &:not(:last-child) {margin-bottom: 30px;}
+    }
+    @include lit-mobile(){
+      gap: 10px;
+    }
+    @include tablet-min(){
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    background-color: #E1D8FC;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    * {
+      margin: 0;
+    }
+    @include tablet(){
+      align-items: center;
+      grid-template-columns: max-content auto;
+      gap: 2px 20px;
+    }
+    @include lit-mobile(){
+      align-items: start;
+    }
+
+    i {
+      font-style: normal;
+      font-size: 56px;
+      line-height: 1;
+      font-weight: 700;
+      color: #734CA5;
+      @include lit-desktop(){
+        font-size: 46px;
+      }
+      @include tablet-min(){
+        &:not(:last-child) {margin-bottom: 6px;}
+      }
+      @include tablet(){
+        font-size: 44px;
+        grid-row: 1 / span 2;
+      }
+      @include small-tablet(){
+        font-size: 64px;
+      }
+      @include lit-mobile(){
+        font-size: 48px;
+      }
+    }
+
+    h3 {
+      color: #464547;
+      font-size: 28px;
+      @include lit-desktop(){
+        font-size: 20px;
+      }
+      @include tablet(){
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__text {
+    color: #464547;
+    font-size: 16px;
+    @include tablet(){
+      font-size: 14px;
+    }
+  }
+
+  &__footer {
+    max-width: 878px;
+    margin: 0 auto;
+    backdrop-filter: blur(24px);
+    box-shadow: 0px 4px 19px 0px rgba(255, 255, 255, 0.02) inset, 0px -4px 12px 0px rgba(255, 255, 255, 0.14) inset;
+    padding: 50px 73px;
+    border-radius: 10px;
+    border: 1px solid rgba(222, 222, 222, 0.45);
+    background-color: #CAB9FF59;
+    position: relative;
+    z-index: 2;
+
+    @include tablet(){
+      padding: 20px;
+      max-width: 630px;
+    }
+    @include mobile(){
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  &__foottitle {
+    font-weight: 700;
+    font-size: 28px;
+    &:not(:last-child) {margin-bottom: 10px;}
+    @include tablet(){
+      font-size: 24px;
+    }
+    @include lit-mobile(){
+      font-size: 20px;
+    }
+  }
+
+  &__foottext {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    &:not(:last-child) {margin-bottom: 30px;}
+    @include tablet(){
+      &:not(:last-child) {margin-bottom: 14px;}
+    }
+    @include lit-mobile(){
+      &:not(:last-child) {margin-bottom: 20px;}
+    }
+    @include lit-mobile(){
+      &:not(:last-child) {margin-bottom: 30px;}
+    }
+  }
+}
+
+.audit-examples {
+  position: relative;
+  padding: 60px 0 0;
+  @include lit-desktop(){
+    padding: 50px 0 0;
+  }
+  @include tablet(){
+    padding: 40px 0 0;
+  }
+  
+  @include lit-desktop-min(){
+    &::before{
+      content:'';
+      position: absolute;
+      top: 31%;
+      left: 4%;
+      width: 63px;
+      height: 63px;
+      background: url(../img/decor.svg) center center / contain no-repeat;
+      rotate: 30deg;
+    }
+    &::after{
+      content:'';
+      position: absolute;
+      top: 59.6%;
+      right: 5.5%;
+      width: 75px;
+      height: 75px;
+      background: url(../img/decor.svg) center center / contain no-repeat;
+    }
+  }
+
+  &__container {
+  }
+
+  &__head {
+    &:not(:last-child) {margin-bottom: 40px;}
+    @include lit-desktop(){
+      &:not(:last-child) {margin-bottom: 30px;}
+    }
+    @include tablet(){
+      &:not(:last-child) {margin-bottom: 20px;}
+    }
+    @include lit-mobile(){
+      &:not(:last-child) {margin-bottom: 30px;}
+    }
+  }
+
+  &__title {
+  }
+
+  &__desc {
+    font-weight: 400;
+    font-size: 18px;
+
+    @include tablet-min(){
+      max-width: 606px;
+    }
+    @include tablet(){
+      font-size: 16px;
+    }
+    @include mobile(){
+      font-size: 14px;
+    }
+  }
+
+  &__body {
+    background-color: #F1ECFF;
+    border-radius: 10px;
+    padding: 30px;
+    @include tablet(){
+      padding: 20px;
+    }
+  }
+
+  &__slider {
+    &:not(:last-child) {margin-bottom: 20px;}
+    @include tablet(){
+      &:not(:last-child) {margin-bottom: 30px;}
+    }
+    @include mobile(){
+      &:not(:last-child) {margin-bottom: 20px;}
+    }
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+    aspect-ratio: 362 / 483;
+    width: 362px;
+    @include tablet(){
+      width: 320px;
+    }
+    @include lit-mobile(){
+      width: 225px;
+    }
+  }
+
+  &__arrow--next {
+    background-color: #E1D8FC;
+  }
+
+  &__arrow--prev {
+    background-color: #E1D8FC;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__contitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.35;
+    @include mobile(){
+      font-size: 18px;
+    }
+  }
+
+  &__context {
+    max-width: 990px;
+    &:not(:last-child) {margin-bottom: 10px;}
+    @include mobile(){
+      font-size: 14px;
+    }
+  }
+
+  &__tags {
+  }
+
+  &__tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+  }
+}

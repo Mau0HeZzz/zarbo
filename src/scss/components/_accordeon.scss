@@ -1,0 +1,175 @@
+.faq{
+  position: relative;
+  background-color: $lightBlock;
+  padding: 120px 0;
+  margin: 60px 0 0;
+  @include lit-desktop(){
+    margin: 50px 0 0;
+    padding: 100px 0;
+  }
+  @include tablet(){
+    margin: 40px 0 0;
+    padding: 80px 0;
+  }
+  @include mobile(){
+    padding: 60px 0;
+    margin: 20px 0 0;
+  }
+  &:before,&:after{
+    content: '';
+    position: absolute;
+    background: url(../img/decor.svg) no-repeat center center;
+    background-size: contain;
+  }
+  &:before{
+    height: 93px;
+    width: 93px;
+    top: -44px;
+    right: 12.7%;
+    transform: rotate(26deg);
+    @include lit-desktop(){
+      right: 6.7%;
+    }
+    @include mobile(){
+      right: -40px;
+    }
+  }
+  &:after{
+    height: 71px;
+    width: 71px;
+    bottom: 42%;
+    left: 7.5%;
+    transform: rotate(26deg);
+    @include lit-desktop(){
+      bottom: 2.5%;
+      left: -3.5%;
+    }
+    @include tablet(){
+      display: none;
+      bottom: 7.5%;
+      left: -6.5%;
+    }
+    @include mobile(){
+      display: none;
+    }
+  }
+  &__accordeon{
+    @include tablet(){
+      padding-top: 8px;
+    }
+    @include mobile(){
+      padding-top: 4px;
+    }
+
+  }
+}
+.accordeon{
+  &__head{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 21px 36px;
+    border-radius: 10px;
+    font-size: 22px;
+    line-height: 135%;
+    background-color: $lightDark;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 5;
+    @include lit-desktop(){
+      font-size: 20px;
+    }
+    @include tablet(){
+      font-size: 18px;
+      padding: 20px 24px;
+    }
+    @include mobile(){
+      font-size: 16px;
+    }
+    svg{
+      width: 23px;
+      height: 13px;
+      margin-left: 20px;
+      flex-shrink: 0;
+      fill: $phiolText;
+      transition: $transtion;
+    }
+  }
+  &__body{
+    position: absolute;
+    z-index: 50;
+    box-sizing: border-box;
+    padding-left: 28px;
+    padding-right: 28px;
+    border-radius: 0 0 10px 10px;
+    background-color: $white;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: $transtion;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    @include lit-desktop(){
+
+    }
+    @include tablet(){
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @include mobile(){
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+  }
+  &__item{
+    position: relative;
+
+    transition: .4s;
+    &.js-active{
+
+
+      .accordeon__body{
+        margin-top: -10px;
+        padding-top: 36px;
+        padding-bottom: 36px;
+        visibility: visible;
+        opacity: 1;
+        max-height: 500px;
+        @include mobile(){
+          padding-top: 24px;
+          padding-bottom: 20px;
+        }
+      }
+      // &::before{
+      //   content: '';
+      //   position: absolute;
+      //   background-color: $lightDark;
+      //   bottom: 0;
+      //   width: 100%;
+      //   height: 72px;
+      //   border-radius: 0 0 10px 10px;
+      //   left: 0;
+
+
+      // }
+      .accordeon__head{
+        position: relative;
+        z-index: 100;
+        svg{
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+  }
+  &__item + &__item{
+    margin-top: 12px;
+    @include mobile(){
+      margin-top: 10px;
+    }
+  }
+}

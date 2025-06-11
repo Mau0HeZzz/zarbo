@@ -1,0 +1,93 @@
+.examples{
+  padding: 60px 0;
+  @include tablet(){
+    padding: 40px 0;
+  }
+  &-item{
+    border-radius: 10px;
+    background-color: $lightBlock;
+    padding: 4px 4px 20px;
+    &__image{
+      display: block;
+      height: 160px;
+      img{
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+    &__body{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 16px 0;
+    }
+    &__title{
+      font-size: 16px;
+      line-height: 135%;
+      font-weight: 600;
+      @include lit-desktop(){
+        font-size: 14px;
+      }
+    }
+    &__time{
+      font-size: 15px;
+      line-height: 135%;
+      margin-left: 14px;
+      flex-shrink: 0;
+
+    }
+  }
+  .swiper-slide{
+    @include lit-mobile(){
+      width: 270px;
+    }
+  }
+  &__swiper{
+    padding-top: 13px;
+    @include mobile(){
+      padding-top: 7px;
+    }
+  }
+  &__slider-container{
+    position: relative;
+    .swiper-arrow{
+      height: 50px;
+      width: 50px;
+      @include lit-mobile(){
+        display: none;
+      }
+      svg{
+        height: 14px;
+        width: 10px;
+      }
+      &.swiper-button-next{
+        right: -25px;
+      }
+      &.swiper-button-prev{
+        left: -25px;
+      }
+    }
+  }
+  &__btn-container{
+    text-align: center;
+    margin-top: 46px;
+    @include lit-desktop(){
+      margin-top: 24px;
+    }
+    @include tablet(){
+      margin-top: 33px;
+    }
+    @include mobile(){
+      margin-top: 28px;
+    }
+    .btn{
+      max-width: 402px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+}

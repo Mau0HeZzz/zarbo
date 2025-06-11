@@ -1,0 +1,273 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+@import "ui";
+.container {
+	max-width: $maxWidthContainer + px;
+	padding: 0 15px;
+	margin: 0 auto;
+  @include lit-desktop(){
+    padding: 0 47px;
+  }
+  @include tablet(){
+    padding: 0 39px;
+  }
+  @include mobile(){
+    padding: 0 33px
+  }
+  @include lit-mobile(){
+    padding: 0 15px
+  }
+	// @media (max-width: $md1 + px) {
+	// 	max-width: 970px;
+	// }
+	// @media (max-width: $md2+px) {
+	// 	max-width: 750px;
+	// }
+	// @media (max-width: $md3+px) {
+	// 	max-width: none;
+	// 	padding: 0 10px;
+	// }
+
+}
+@import "./components/section";
+@import "./components/btns";
+@import "./components/input";
+@import "./components/content-block";
+@import "./components/swiperUi";
+@import "./components/tooltip";
+@import "./components/social";
+@import "./components/auth";
+@import "./components/main-menu";
+@import "./components/header";
+@import "./components/hero-index";
+@import "./components/spheres";
+@import "./components/offer";
+@import "./components/convenience";
+@import "./components/any-type";
+@import "./components/how-it-work";
+@import "./components/comfort";
+@import "./components/confidence";
+@import "./components/more-usage";
+@import "./components/gallery";
+@import "./components/examples";
+@import "./components/accordeon";
+@import "./components/tell-project";
+@import "./components/footer";
+@import "./components/hero-inside";
+@import "./components/coop-cards";
+@import "./components/about-info";
+@import "./components/about-prod";
+@import "./components/what-we-do";
+@import "./components/our-clients";
+@import "./components/mission";
+@import "./components/team";
+@import "./components/hero-price";
+@import "./components/noUikit";
+@import "./components/benefits-table";
+@import "./components/hero-other";
+@import "./components/form-photo";
+@import './components/input-file';
+@import './components/catalog';
+@import './components/modal';
+@import './components/fixed-menu';
+
+@import "./components/audit-info";
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+//&display=swap&subset=cyrillic-ext
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+//@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "Montserrat";
+$fontSize: 16;
+$fontWeight: 400;
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+// @import "null";
+html{
+  scroll-behavior: smooth;
+}
+body {
+	color: $mainColor;
+	font-family: $fontFamily, sans-serif;
+  font-size: 16px;
+  line-height: 135%;
+  color: $mainColor;
+  display: flex;
+
+// Класс блокировки
+	&.js-hidden {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+.just-validate-error-label{
+  position: absolute;
+  margin-left: 30px;
+  padding-left: 14px;
+  color: #ff5c5c !important;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  margin-top: -2px;
+  &:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 3px;
+    width: 6px;
+    height: 6px;
+    background: #ff5c5c;
+  }
+  @include tablet(){
+    margin-left: 0;
+    position: relative;
+  }
+}
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ЗАГОЛОВКИ>=================================================================================================================
+// h1 {
+// 	font-size: 35px;
+// 	font-weight: 500;
+// 	line-height: 52.8 / 40 *100%;
+// 	line-height: 38px;
+// }
+
+// h2 {
+// 	font-size: 32px;
+// 	font-weight: 500;
+// 	line-height: 38px;
+// }
+
+// h3 {
+// 	font-size: 28px;
+// 	font-weight: 500;
+// 	line-height: 38px;
+// }
+
+// h4 {
+// 	font-size: 25px;
+// 	font-weight: 500;
+// 	line-height: 38px;
+// }
+
+// .title {
+// 	text-align: center;
+// 	color: #222222;
+// 	margin-bottom: 38px;
+// }
+
+// @media (max-width: 768px) {
+// 	h1 {
+// 		font-size: 26px;
+// 	}
+
+// 	h2 {
+// 		font-size: 24px;
+// 	}
+// }
+
+//<ЗАГОЛОВКИ>=================================================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	// min-height: 200vh;
+	// position: relative;
+	&._loaded {}
+
+	// Фикс для слайдеров
+	>* {
+		min-width: 0;
+	}
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+// @import "forms";
+// @import "ui";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+// @import "../../js/fancybox/jquery.fancybox";
+// @import "datepicker";
+// @import "lightgallery";
+// @import "popover.min";
+// @import "baguetteBox";
+// @import "fancybox.min";
+// @import "pagging";
+// @import "map";
+// @import "slider-index";
+// @import "catalog";
+// @import "collection";
+// @import "tippy";
+// @import "nouislider";
+// @import "popup";
+// @import "header";
+// @import "footer";
+// @import "home";
+
+
+// @import "map";
+
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	flex: 1 1 auto;
+	// padding: 35px 0;
+	// padding-top: 80px;
+}
+
+.section {
+
+
+  &--light{
+    padding-top: 366px;
+    background-color: $lightBlock;
+    @include lit-desktop(){
+     padding-top: 354px;
+    }
+    @include tablet(){
+      padding-top: 0;
+    }
+  }
+}
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+.isCustomTariff{
+  .rate-info__bot,.rate-info__price{
+    display: none;
+  }
+}
