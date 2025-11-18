@@ -74,6 +74,13 @@
 @import './components/fixed-menu';
 
 @import "./components/audit-info";
+
+@import "./components/webplatform-hero";
+@import "./components/webplatform-possibilities";
+@import "./components/webplatform-evolution";
+@import "./components/webplatform-simple";
+@import "./components/webplatform-analitic";
+@import "./components/webplatform-banner";
 //<ШРИФТЫ>===============================================================================================
 
 //<Подключаем шрифты>=======================================================================================
@@ -192,7 +199,7 @@ body {
 .wrapper {
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
+	overflow: clip;
 	display: flex;
 	flex-direction: column;
 

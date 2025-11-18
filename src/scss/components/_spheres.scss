@@ -622,3 +622,79 @@
     pointer-events: all;
   }
 }
+
+._content {
+  > *:first-child {
+    margin-top: 0;
+  }
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px; /* 116.667% */
+    margin-bottom: 20px;
+    @include lit-desktop() {
+      font-size: 28px;
+      line-height: 129%;
+    }
+    @include tablet() {
+      display: none;
+    }
+  }
+  p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 135%;
+    margin: 0 0 20px 0;
+    @include lit-desktop() {
+    }
+    @include tablet() {
+      font-size: 18px;
+      line-height: 135%;
+      margin: 0 0 12px 0;
+    }
+    @include lit-mobile() {
+      margin: 0 0 16px 0;
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0 0 20px 0;
+    list-style: none;
+    @include tablet() {
+      margin-bottom: 0;
+    }
+    li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 135%;
+      @include tablet() {
+        font-size: 15px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        background: url(../img/decor.svg) no-repeat center center;
+        background-size: contain;
+        height: 10px;
+        width: 10px;
+        transform: rotate(58deg);
+      }
+    }
+    li + li {
+      margin-top: 18px;
+      @include tablet() {
+        margin-top: 12px;
+      }
+      @include mobile() {
+        margin-top: 15px;
+      }
+    }
+  }
+}

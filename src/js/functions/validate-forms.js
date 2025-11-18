@@ -6,7 +6,7 @@ export const validateForms = (selector, rules, afterSend) => {
       focusInvalidField: false,
       lockForm: false,
       testingMode: false,
-      validateBeforeSubmitting: true,
+      validateBeforeSubmitting: false,
       submitFormAutomatically: false
     });
   
@@ -23,7 +23,6 @@ export const validateForms = (selector, rules, afterSend) => {
     })
 
     validation.onSuccess(ev => {
-      
       // let formData = new FormData(ev.target);
       // let xhr = new XMLHttpRequest();
       const modals = document.querySelectorAll('.modal');

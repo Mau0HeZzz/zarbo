@@ -11,10 +11,24 @@ import { validateForms } from "./functions/validate-forms";
 import MicroModal from "micromodal";
 import NiceSelect from "nice-select2";
 
+const mmd2 = window.matchMedia?.('(width >= 992px)')
+const md2 = window.matchMedia?.('(width < 992px)')
+
 window.addEventListener('load', () => {
-  Fancybox?.bind("[data-fancybox]", {
-  });
+  if (window.Fancybox) {
+    Fancybox?.bind("[data-fancybox]", {});
+  }
 })
+
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   /* Шапка */
 
@@ -816,15 +830,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function numberWithSpaces(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   }
-
-  function debounce(func, wait) {
-    let timeout;
-    return function (...args) {
-      const context = this;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(context, args), wait);
-    };
-  }
   const priceCounter = () => {
     const cardItem = document.querySelector(".main-tarifs-item.js-active");
     if (cardItem) {
@@ -1240,12 +1245,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   validatonForms();
 
-  // Инициализация модалок
+  document.addEventListener('click', (e) => {
+    const micromodalTrigger = e.target.closest('[data-micromodal-trigger]');
+    if (micromodalTrigger) {
+      e.stopPropagation();
+      e.preventDefault();
+      if (micromodalTrigger.dataset.micromodalTrigger?.trim?.()) {
+        MicroModal.show(micromodalTrigger.dataset.micromodalTrigger)
+      }
+    }
+  })
 
+  // Инициализация модалок
   function initModals() {
     MicroModal.init({
       disableScroll: true,
       disableFocus: true,
+      openTrigger: 'data-mhz-modal-open',
       onClose: modal => {
         // Сброс значений всех форм внутри закрываемого модального окна
         const forms = modal.querySelectorAll('form');
@@ -1301,4 +1317,113 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
   }
+
+  const webplatformPossibilities = document.querySelector('[data-webplatform-possibilities]');
+  if (webplatformPossibilities) {
+    webplatformPossibilitiesAction(webplatformPossibilities)
+  }
 });
+
+function webplatformPossibilitiesAction(webplatformPossibilities) {
+  if (md2.matches) return;
+  const items = webplatformPossibilities.querySelectorAll('[webplatform-possibilities-content]');
+  if (!items.length) return;
+
+  window.addEventListener('scroll', (e)=>{
+    webplatformPossibilitiesCheckItems(items);
+  })
+}
+
+const webplatformPossibilitiesSetContentDebounced = debounce(webplatformPossibilitiesSetContent, 300);
+
+function webplatformPossibilitiesCheckItems(items) {
+  if (md2.matches) return;
+  const border = window.innerHeight / 5;
+  items.forEach(item=>{
+    const { top } = item.getBoundingClientRect();
+    if (top > border) return;
+
+    if (top < 0) {
+      const activeItem = document.querySelector('[webplatform-possibilities-content]._active');
+      if (activeItem) return;
+
+      return webplatformPossibilitiesSetContentDebounced(item, items);
+    }
+
+    if (item.classList.contains('_active')) return;
+    webplatformPossibilitiesSetContentDebounced(item, items)
+  })
+}
+
+function webplatformPossibilitiesSetContent(item, items) {
+  items.forEach(item=>item.classList.remove('_active'))
+  item.classList.add('_active');
+  
+  let content = item.getAttribute('webplatform-possibilities-content');
+  let dopContent = '';
+  const forInsert = document.querySelector('[webplatform-possibilities-forinsert]');
+
+  if (!content?.trim?.()||!forInsert) return;
+  let tempContent = content;
+
+  const elems = [];
+  const forInsertInners = forInsert.querySelectorAll('&>*');
+  forInsertInners.forEach(el=>{
+    const className = el.className;
+    const tagName = el.tagName;
+    if (className.trim()) {
+      if (content.includes(className)) {
+        const top = el.offsetTop;
+        elems.push(el);
+        tempContent = tempContent.replace(`"${className}"`, `"${className} _transition-in _absolute" style="top:${top}px;"`);
+      } else {
+        dopContent += el.outerHTML;
+      }
+    } else {
+      if (content.includes(`<${tagName.toLowerCase()}>`)) {
+        const top = el.offsetTop;
+        elems.push(el)
+        tempContent = tempContent.replace(tagName, `<${tagName.toLowerCase()} class="_transition-in _absolute"  style="top:${top}px;>`);
+      } else {
+        dopContent += el.outerHTML;
+      }
+    }
+  })
+
+  elems.forEach(el=>el.classList.add('_transition-out'));
+  let timeout = parseFloat(getComputedStyle(forInsert.querySelector('*')).getPropertyValue('transition-duration')) * 1000;
+  if (isNaN(timeout)) timeout = 300;
+  setTimeout(() => {
+    forInsert.insertAdjacentHTML('afterbegin', tempContent);
+
+    const transAbs = forInsert.querySelectorAll('._transition-in._absolute');
+    const transNotAbs = forInsert.querySelectorAll('._transition-out:not(._absolute)');
+
+    transNotAbs.forEach(e=>e.classList.add('_absolute'));
+    transAbs.forEach(e=>{
+      e.classList.remove('_absolute')
+      setTimeout(() => {
+        e.classList.remove('_transition-in')
+      }, 10);
+    })
+  }, timeout / 2);
+
+  setTimeout(() => {
+    forInsert.innerHTML = (content + dopContent);
+  }, timeout);
+
+  // if (!content.includes('a href="https://app.zarbo.tech/login"')) {
+  //   content += '<a href="https://app.zarbo.tech/login" target="_blank" class="btn btn--big btn--gradient hero__btn"><span>попробовать бесплатно</span></a>'
+  // }
+  // if (!content.includes('<i>')) {
+  //   content += `<i><svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_1545_1408)"><path d="M51.4471 30.0399C57.8181 33.7285 55.2078 43.4705 47.846 43.4794L42.6419 43.4858C40.0742 43.4889 37.7022 44.8583 36.4157 47.0805L33.8082 51.5842C30.1196 57.9552 20.3776 55.3449 20.3687 47.9831L20.3624 42.779C20.3593 40.2113 18.9898 37.8393 16.7677 36.5528L12.2639 33.9452C5.89291 30.2566 8.50327 20.5147 15.865 20.5057L21.0691 20.4994C23.6368 20.4963 26.0088 19.1269 27.2954 16.9047L29.9029 12.401C33.5915 6.02998 43.3335 8.64033 43.3424 16.0021L43.3487 21.2062C43.3518 23.7739 44.7213 26.1459 46.9434 27.4324L51.4471 30.0399Z" fill="url(#paint0_linear_1545_1408)"/></g><defs><linearGradient id="paint0_linear_1545_1408" x1="43.3169" y1="50.8878" x2="17.2265" y2="8.38841" gradientUnits="userSpaceOnUse"><stop stop-color="#EB5884"/><stop offset="0.491918" stop-color="#A05ED5"/><stop offset="1" stop-color="#6124C5"/></linearGradient><clipPath id="clip0_1545_1408"><rect width="46.9045" height="46.9045" fill="white" transform="translate(23.4531) rotate(30)"/></clipPath></defs></svg></i>`
+  // }
+
+  // forInsert.classList.add('_transition-out');
+  // // forInsert.insertAdjacentHTML('afterbegin', content);
+  // setTimeout(() => {
+  //   forInsert.innerHTML = content;
+  //   forInsert.classList.remove('_transition');
+  // }, timeout);
+
+}
